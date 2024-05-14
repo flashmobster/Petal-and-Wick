@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-Connection_String = 'mongodb+srv://hturayam11:Yavettehad3!@cluster0.qcxxxxi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const Connection_String = 'mongodb+srv://crishoyle:pfl3Pvny1AgCq60a@cluster0.qcxxxxi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 const candleSchema = new mongoose.Schema({
     name:{
@@ -20,7 +20,7 @@ const Candle = mongoose.model('Candle', {candleSchema} )
 
 
 
-mongoose.connect(Connection_String, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(Connection_String)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
