@@ -79,7 +79,7 @@ app.get('/api/flowers', async (req, res) => {
 });
 
 // GET route to fetch all bundles
-app.get('/api/flowers', async (req, res) => {
+app.get('/api/bundles', async (req, res) => {
     try {
       console.log('Fetching bundles...');
       const bundles = await Product.find({ type: 'bundles' });
