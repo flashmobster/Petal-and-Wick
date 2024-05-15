@@ -1,0 +1,65 @@
+body {
+    background-image:url("./project-photo-2.jpeg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: contain; 
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-size: 100% auto; 
+    }
+}
+
+.frontPage{
+    text-align: center;
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'papyrus';
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 2s linear;
+}
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+header {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    background: antiquewhite;
+    color: #F9577E;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+a{
+    color:#F9577E;
+}
+.about {
+    margin: 10% auto; 
+    padding: 20px; 
+    color: antiquewhite;
+    text-align: center;
+    border: 10px solid #F9577E;
+    background-color: #F9577E;
+    max-width: 80%; 
+}
