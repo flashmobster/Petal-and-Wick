@@ -20,9 +20,21 @@ const Candle = mongoose.model('Candle', {candleSchema} )
 
 
 
-mongoose.connect(Connection_String)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Error connecting to MongoDB:', err));
+const candleArray = [ new Candle({name: 'tulip', description:'tulip',img_url:"nully null null", price: 100}),
+                      new Candle({name:"rose",description:'rose',img_url:"null",price:200})
+                ]
+    
+    async function connect() {
+        await mongoose.connect(Connection_String)
+         .then(() => console.log('Connected to MongoDB'),
+        Candle.insertMany(candleArray))
+         .catch(err => console.error('Error connecting to MongoDB:', err));
+    }
+
+    connect();
+
+
+
 
 
 module.exports = Candle;

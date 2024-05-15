@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Connection_String = 'mongodb+srv://crishoyle:pfl3Pvny1AgCq60a@cluster0.qcxxxxi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const { Schema } = mongoose; 
+const { Schema } = mongoose;
 const Customer = require('./customerSchema');
 
 const orderSchema = new Schema({
@@ -25,8 +25,19 @@ const orderSchema = new Schema({
 
 const Order = mongoose.model('Order', orderSchema);
 
-mongoose.connect(Connection_String)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Error connecting to MongoDB:', err));
+const orderArray = [new Order({ name: 'tulip', description: 'tulip', img_url: "nully null null", price: 100 }),
+new Order({ name: "rose", description: 'rose', img_url: "null", price: 200 })
+]
+
+async function connect() {
+    await mongoose.connect(Connection_String)
+        .then(() => console.log('Connected to MongoDB'),
+            Order.insertMany(orderArray))
+        .catch(err => console.error('Error connecting to MongoDB:', err));
+}
+
+connect();
+
+
 
 module.exports = Order;
