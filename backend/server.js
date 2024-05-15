@@ -1,17 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose')
 require('dotenv').config();
 const Connection_String = 'mongodb+srv://crishoyle:pfl3Pvny1AgCq60a@cluster0.qcxxxxi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 
 const Candle = require('./candleSchema'); 
 const Flower = require('./flowerSchema');
 const Order = require('./orderSchema');
 const Customer = require('./customerSchema')
 
-const app = express();
-app.use(cors());
 
-app.use(express.json());
 
 app.get('/', async (req, res) => {
   
@@ -77,17 +79,9 @@ app.post('/products/candles', async (req, res) => {
 
 app.post('/orders', async (req, res) => {
     try {
-        const { img_url, name, quantity, price } = req.body; 
-
-        const newOrder = new Order({
-            img_url,
-            name,
-            quantity,
-            price
-        });
-        await newOrder.save();
-
-        res.status(201).json({ message: 'Order placed successfully', order: newOrder });
+       const orderBody = req.body
+       await Order.insertMany(orderBody)
+       res.send(orderBody)
     } catch (error) {
         console.error('Error placing order:', error);
         res.status(500).json({ error: 'Internal Server Error' });

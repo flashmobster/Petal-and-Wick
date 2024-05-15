@@ -15,11 +15,12 @@ const orderSchema = new Schema({
     },
     price: {
         type: Number
-    },
-    customer: {
-        type: Schema.Types.ObjectId,
-        ref: 'Customer'
     }
+    // },
+    // customer: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Customer'
+    // }
 });
 
 const Order = mongoose.model('Order', orderSchema);
