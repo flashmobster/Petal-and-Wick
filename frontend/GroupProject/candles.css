@@ -31,4 +31,8 @@
 a{
     color:#F9577E;
 }
-a :hover
+.navbar{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -18,10 +18,7 @@ body {
     text-transform: capitalize;
     transition: 2s linear;
 }
-html{
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
+
 header{
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -36,11 +33,18 @@ a{
     color:#F9577E;
 }
 .about{
-    margin: 10%;
     color: antiquewhite;
     text-align: center;
     border: #F9577E;
     border-width: 10px;
     border-style: solid;
     background-color: #F9577E;
+    line-height: 2em;
+    width: 50%;
 }
+.navbar{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
