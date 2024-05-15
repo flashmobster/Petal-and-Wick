@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB Atlas
 const uri = process.env.MONGODB_URI;
-mongoose.connect(uri, { dbName: 'data', useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(uri, { dbName: 'data'});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', function () {
