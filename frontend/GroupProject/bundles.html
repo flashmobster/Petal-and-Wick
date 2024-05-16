@@ -26,7 +26,7 @@
     </header>
     <div id="imageContainer"></div>
     <script>
-        // Function to fetch image URLs from the backend server
+        
         async function fetchImageURLs() {
             try {
                 // const response = await fetch('https://petal-and-wick.onrender.com/api/candles'); // Endpoint to fetch image URLs from your backend
@@ -81,46 +81,45 @@
             }
         }
 
-        // Function to populate images onto the HTML page
         async function populateImages() {
             const imageContainer = document.getElementById("imageContainer");
             const imageURLs = await fetchImageURLs();
-            // Loop through the array of image URLs
+            
             for (let i = 0; i < imageURLs.length; i++) {
-                // Create a div to hold the image and details
+                
                 const itemDiv = document.createElement("div");
                 itemDiv.classList.add("item");
 
-                // Create an image element
+                
                 const img = document.createElement("img");
-                // Set the src attribute to the current image URL
+                
                 img.src = imageURLs[i].image_url;
 
-                // Create an element for the name
+                
                 const name = document.createElement("h2");
                 name.textContent = imageURLs[i].name;
 
-                // Create an element for the price
+                
                 const price = document.createElement("p");
                 price.classList.add("price");
                 price.textContent = `$${imageURLs[i].price}`;
 
-                // Create an element for the description
+                
                 const description = document.createElement("p");
                 description.textContent = imageURLs[i].description;
 
-                // Append the image, name, price, and description to the item div
+            
                 itemDiv.appendChild(img);
                 itemDiv.appendChild(name);
                 itemDiv.appendChild(price);
                 itemDiv.appendChild(description);
 
-                // Append the item div to the image container
+                
                 imageContainer.appendChild(itemDiv);
             }
         }
 
-        // Call the function to populate images when the page loads
+        
         window.onload = populateImages;
     </script>
 </body>
