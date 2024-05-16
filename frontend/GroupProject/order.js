@@ -28,4 +28,17 @@
 
                 window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
             }
+
+            function sendForm() {
+                const formData = new FormData(form);
+                const data = {};
+                for (const [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+        
+                sendEmail(data);
+            }
+
+            const addToCartButton = document.getElementById('addToCart');
+            addToCartButton.addEventListener('click', sendForm);
         });

@@ -66,3 +66,16 @@ a {
     color: #F9577E;
     text-decoration: none; 
 }
+
+#shippingInfo{
+    width: 100%;
+}
+#shippingInfo form {
+    width: 100%;
+}
+#shippingInfo label {
+    width: 100%;
+}
+#shippingInfo input{
+    width: 100%;
+}
