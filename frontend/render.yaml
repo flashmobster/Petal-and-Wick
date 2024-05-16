@@ -1,0 +1,7 @@
+build:
+  command: "cp -r GroupProject/* ." # This file holds all of the page html
+                                    # and image assets
+publish:
+  directory: "frontend" # This is the directory that all of the files 
+                        # nested will be added to the parent directory
+                        # for building the static site 
