@@ -1,20 +1,126 @@
-<link rel="stylesheet" href="candles.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html lang="en">
 
-<header>
-    <div class="title">
-        <a href="#"class="logo"></a>Petal & Wick</a>
-    </div>
-    <h1>Shop Candles</h1>
-    <nav class ="navbar">
-        <a href="./FrontPage.html">home</a>
-        <a href="./candles.html">candles</a>
-        <a href="./flowers.html">roses</a>
-        <a href="./bundles.html">bundles</a>
-        <a href="#"> <i class="fa fa-shopping-cart"></i></a>
-</nav>
-</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="candles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Petal & Wick - Shop Candles</title>
+
+</head>
 
 <body>
+    <header>
+        <div class="title">
+            <a href="#" class="logo"></a>Petal & Wick
+        </div>
+        <h1>Shop Candles</h1>
+        <nav class="navbar">
+            <a href="./FrontPage.html">home</a>
+            <a href="./candles.html">candles</a>
+            <a href="./flowers.html">roses</a>
+            <a href="./bundles.html">bundles</a>
+            <a href="#"> <i class="fa fa-shopping-cart"></i></a>
+        </nav>
+    </header>
+    <div id="imageContainer"></div>
+    <script>
+        // Function to fetch image URLs from the backend server
+        async function fetchImageURLs() {
+            try {
+                // const response = await fetch('https://petal-and-wick.onrender.com/api/candles'); // Endpoint to fetch image URLs from your backend
+                // const data = await response.json();
+                return [
+                    {
+                        "_id": "66444170937e1201767d11cd",
+                        "name": "Bergamot Rose Candle",
+                        "price": 40,
+                        "description": "Uplifting Rose mingles with radiant Bergamot, Honeysuckle and Orange Blossom for playful, whimsical moments in a free-spirited scent meant for daydreaming. ",
+                        "image_url": "https://www.voluspa.com/cdn/shop/products/icon-candle-cloche-cover-bergamont-rose-1-b588.jpg?v=1712797705&width=1200",
+                        "color": "misc",
+                        "type": "candles",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "66444170937e1201767d11ce",
+                        "name": "Rose Colored Glasses",
+                        "price": 40,
+                        "description": "The sweet scent of Pink Rose Petals, Neroli Blossom and warm Vanilla cast a cheerful and optimistic glow, putting everything in its best light- like wearing Rose Colored Glasses. ",
+                        "image_url": "https://www.voluspa.com/cdn/shop/products/icon-candle-cloche-cover-rose-colored-glasses-1-1472.jpg?v=1712797696&width=1200",
+                        "color": "misc",
+                        "type": "candles",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "66444170937e1201767d11cf",
+                        "name": "Rose Petal Ice Cream",
+                        "price": 40,
+                        "description": "A confectioner's twist on a classic Rose scent, this heady aroma of Sugared Rose Petals swirl with tart Raspberry, Almond, Marshmallow, and Vanilla Bean Ice Cream goes well beyond a childhood treat.",
+                        "image_url": "https://www.voluspa.com/cdn/shop/products/icon-candle-cloche-cover-rose-petal-ice-cream-1-cb6b.jpg?v=1712797646&width=1200",
+                        "color": "misc",
+                        "type": "candles",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "66444170937e1201767d11d0",
+                        "name": "Blackberry Rose Oud",
+                        "price": 40,
+                        "description": "Under a grove of Citrus and Figs, Rose vines tangle with Berry vines. As flowers and fruit bloom, they collide in an intoxicating burst of sophisticated fragrance.",
+                        "image_url": "https://www.voluspa.com/cdn/shop/products/5326-1.jpg?v=1712797746&width=1200",
+                        "color": "misc",
+                        "type": "candles",
+                        "__v": 0
+                    }
+                ]
+            } catch (error) {
+                console.error('Error fetching image URLs:', error);
+                return [];
+            }
+        }
 
+        // Function to populate images onto the HTML page
+        async function populateImages() {
+            const imageContainer = document.getElementById("imageContainer");
+            const imageURLs = await fetchImageURLs();
+            // Loop through the array of image URLs
+            for (let i = 0; i < imageURLs.length; i++) {
+                // Create a div to hold the image and details
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("item");
+
+                // Create an image element
+                const img = document.createElement("img");
+                // Set the src attribute to the current image URL
+                img.src = imageURLs[i].image_url;
+
+                // Create an element for the name
+                const name = document.createElement("h2");
+                name.textContent = imageURLs[i].name;
+
+                // Create an element for the price
+                const price = document.createElement("p");
+                price.classList.add("price");
+                price.textContent = `$${imageURLs[i].price}`;
+
+                // Create an element for the description
+                const description = document.createElement("p");
+                description.textContent = imageURLs[i].description;
+
+                // Append the image, name, price, and description to the item div
+                itemDiv.appendChild(img);
+                itemDiv.appendChild(name);
+                itemDiv.appendChild(price);
+                itemDiv.appendChild(description);
+
+                // Append the item div to the image container
+                imageContainer.appendChild(itemDiv);
+            }
+        }
+
+        // Call the function to populate images when the page loads
+        window.onload = populateImages;
+    </script>
 </body>
+
+</html>
