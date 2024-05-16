@@ -11,8 +11,11 @@
 <header>
 
     <div class="title">
-        <a href="#"class="logo"></a>Petal & Wick</a>
+        <a href="#" class="logo"></a>Petal & Wick</a>
     </div>
+    <!-- <div class="title">
+        <a href="#" class="logo"></a>Petal &amp; Wick
+    </div> -->
 
     <h1>Complete Your Order</h1>
 
@@ -21,8 +24,7 @@
         <a href="./candles.html">candles</a>
         <a href="./flowers.html">roses</a>
         <a href="./bundles.html">bundles</a>
-        <a href="./order.html">order</a>
-        <a href=""> <i class="fa fa-shopping-cart"></i></a>
+        <a href="./order.html"> <i class="fa fa-shopping-cart"></i></a>
     </nav>
     
 </header>
@@ -101,10 +103,32 @@
                 
             </form>
 
+            <div id="paymentInfo">
+        
+                <form action="">
+    
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" name="cardName" id="cardName">
+
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" name="cardNumber" id="cardNumber">
+
+                    <label for="expDate">Expiration Date</label>
+                    <input type="number" name="expDate" id="expDate">
+
+                    <label for="cvv">CVV</label>
+                    <input type="number" name="cvv" id="cvv">
+
+                    <label for="billAddress">Billing Address</label>
+                    <input type="text" name="billAddress" id="billAddress">
+    
+                </form>
+    
+            </div>
+
             <a href="./cart.html">
 
-                <label for="addToCart">Add to Cart</label>
-                <input type="button" name="addToCart" id="addToCart">
+                <input type="submit" id="placeOrder" value="Place Order">
 
             </a>
 
